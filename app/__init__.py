@@ -2,6 +2,8 @@ import os
 
 from flask import Flask, jsonify
 import psycopg2
+from psycopg2.extras import RealDictCursor
+
 
 
 # Initialize application
@@ -22,7 +24,7 @@ def connect_db():
 @app.route("/")
 def top_apps():
     con = connect_db()
-    cursor = con.cursor()
+    cursor = con.cursor(cursor_factory=RealDictCursor)
     sql = "SELECT * FROM app.citacoes_20190409"
     cursor.execute(sql)
     data = cursor.fetchall()
