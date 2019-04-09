@@ -20,9 +20,10 @@ def connect_db():
 
 @app.route("/")
 def top_apps():
-    con = connect_db()
-    cursor = con.cursor()
-    sql = "SELECT * FROM app.citacoes-2019-04-09"
-    cursor.execute(sql)
-    data = cursor.fetchall()
+    #con = connect_db()
+    #cursor = con.cursor()
+    #sql = "SELECT * FROM app.citacoes-2019-04-09"
+    #cursor.execute(sql)
+    #data = cursor.fetchall()
+    return 'ok'
     return jsonify(data)
