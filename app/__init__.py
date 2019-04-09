@@ -21,13 +21,9 @@ def connect_db():
 
 @app.route("/")
 def top_apps():
-    try:
-        con = connect_db()
-    except:
-        print('erro db')
-    #cursor = con.cursor()
-    #sql = "SELECT * FROM app.citacoes-2019-04-09"
-    #cursor.execute(sql)
-    #data = cursor.fetchall()
-    return 'ok'
+    con = connect_db()
+    cursor = con.cursor()
+    sql = "SELECT * FROM app.citacoes-2019-04-09"
+    cursor.execute(sql)
+    data = cursor.fetchall()    
     return jsonify(data)
