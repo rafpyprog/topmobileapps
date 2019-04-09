@@ -23,7 +23,7 @@ def connect_db():
 def top_apps():
     con = connect_db()
     cursor = con.cursor()
-    sql = "SELECT * FROM app.citacoes-2019-04-09"
+    sql = "SELECT * FROM app.citacoes_20190409"
     cursor.execute(sql)
-    data = cursor.fetchall()    
+    data = cursor.fetchall()
     return jsonify(data)
